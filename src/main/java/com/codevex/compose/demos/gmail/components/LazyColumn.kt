@@ -32,8 +32,12 @@ import com.codevex.compose.demos.gmail.extensions.randomPastel
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 enum class ScrollPosition { TOP, BOTTOM, MIDDLE }
+
 enum class ScrollDirection { UP, DOWN, IDLE }
 
+/**
+ * Remembers the scroll position state of a LazyList.
+ */
 @Composable
 fun rememberScrollPositionState(listState: LazyListState): State<ScrollPosition> {
     return remember {
@@ -47,6 +51,9 @@ fun rememberScrollPositionState(listState: LazyListState): State<ScrollPosition>
     }
 }
 
+/**
+ * Remembers the first visible index state of a LazyList.
+ */
 @Composable
 fun rememberFirstVisibleIndexState(listState: LazyListState): State<Int> {
     val firstVisibleIndex = remember { mutableIntStateOf(0) }
@@ -59,6 +66,9 @@ fun rememberFirstVisibleIndexState(listState: LazyListState): State<Int> {
     return firstVisibleIndex
 }
 
+/**
+ * Remembers the scroll direction state of a LazyList.
+ */
 @Composable
 fun rememberScrollDirectionState(listState: LazyListState): State<ScrollDirection> {
     val scrollDirection = remember { mutableStateOf(ScrollDirection.IDLE) }
@@ -83,6 +93,9 @@ fun rememberScrollDirectionState(listState: LazyListState): State<ScrollDirectio
     return scrollDirection
 }
 
+/**
+ * Remembers whether the LazyList is at the top.
+ */
 @Composable
 fun rememberIsAtTopState(listState: LazyListState): State<Boolean> {
     val isAtTop = remember { mutableStateOf(true) }
@@ -95,6 +108,9 @@ fun rememberIsAtTopState(listState: LazyListState): State<Boolean> {
     return isAtTop
 }
 
+/**
+ * Remembers whether the LazyList is at the bottom.
+ */
 @Composable
 fun rememberIsAtBottomState(listState: LazyListState): State<Boolean> {
     val isAtBottom = remember { mutableStateOf(false) }
@@ -209,4 +225,3 @@ private fun LazyColumn(
         }
     }
 }
-
