@@ -188,6 +188,7 @@ private fun PreviewTopBottomDetection(modifier: Modifier = Modifier) {
     val isAtTop by rememberIsAtTopState(listState)
     val isAtBottom by rememberIsAtBottomState(listState)
 
+    
     Column(modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = if (isAtTop) "You're at the top!" else if (isAtBottom) "You're at the bottom!" else "Keep scrolling!",
